@@ -3,7 +3,7 @@ const colors = require("colors");
 const moragan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
-
+var cors = require('cors');
 //dotenv conig
 dotenv.config();
 
@@ -16,6 +16,7 @@ const app = express();
 //middlewares
 app.use(express.json());
 app.use(moragan("dev"));
+app.use(cors());
 
 //routes
 app.use("/api/v1/user", require("./routes/userRoutes"));
